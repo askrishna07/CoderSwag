@@ -34,6 +34,6 @@ object DataService {
         Product("Hat Foir", "$40", "hat4"),
         Product("Hat FIve", "$50", "hat5")
     )
-    
+
 
 }
