@@ -12,18 +12,17 @@ import com.example.coderswag.R
 import kotlinx.android.synthetic.main.category_list_item.view.*
 
 class CategoryAdapter(val context : Context, val categories : List<Category>) : BaseAdapter() {
-
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val categoryView: View
-        val holder: ViewHolder
-        if (convertView == null) {
+        val categoryView : View
+        val holder : ViewHolder
+        if (convertView == null){
             categoryView = LayoutInflater.from(context).inflate(R.layout.category_list_item, null)
 
             holder = ViewHolder()
-            holder.categoryImage = categoryView.categoryImage
+             holder.categoryImage = categoryView.categoryImage
             holder.categoryName = categoryView.categoryName
             categoryView.tag = holder
-        } else {
+        }else{
             holder = convertView.tag as ViewHolder
             categoryView = convertView
         }
@@ -32,6 +31,7 @@ class CategoryAdapter(val context : Context, val categories : List<Category>) : 
         val category = categories[position]
         val resourceId = context.resources.getIdentifier(category.image, "drawable", context.packageName)
         holder.categoryImage?.setImageResource(resourceId)
+
         holder.categoryName?.text = category.title
 
         return categoryView
@@ -49,7 +49,7 @@ class CategoryAdapter(val context : Context, val categories : List<Category>) : 
         return categories.count()
     }
 
-    private class ViewHolder {
+    private class ViewHolder{
         var categoryImage: ImageView? = null
         var categoryName: TextView? = null
     }
